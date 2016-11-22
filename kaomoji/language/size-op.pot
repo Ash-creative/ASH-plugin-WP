@@ -1,0 +1,112 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2016-11-13 13:12+0000\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: inc/admin.php:15
+msgid "Basic Settings"
+msgstr ""
+
+#: inc/admin.php:16
+msgid "Basic Settings description"
+msgstr ""
+
+#: inc/admin.php:17
+msgid "Basic"
+msgstr ""
+
+#: inc/admin.php:21
+msgid "Advanced Settings"
+msgstr ""
+
+#: inc/admin.php:22
+msgid "Advanced Settings description"
+msgstr ""
+
+#: inc/admin.php:27
+msgid "Other Settings description"
+msgstr ""
+
+#: inc/admin.php:35 inc/admin.php:109 inc/admin.php:178
+msgid "Text Input"
+msgstr ""
+
+#: inc/admin.php:36 inc/admin.php:110 inc/admin.php:179
+msgid "Text input description"
+msgstr ""
+
+#: inc/admin.php:42
+msgid "HTML description"
+msgstr ""
+
+#: inc/admin.php:47 inc/admin.php:116 inc/admin.php:185
+msgid "Textarea Input"
+msgstr ""
+
+#: inc/admin.php:48 inc/admin.php:117 inc/admin.php:186
+msgid "Textarea description"
+msgstr ""
+
+#: inc/admin.php:53 inc/admin.php:54 inc/admin.php:122 inc/admin.php:191
+msgid "Checkbox"
+msgstr ""
+
+#: inc/admin.php:55 inc/admin.php:123 inc/admin.php:192
+msgid "Checkbox Label"
+msgstr ""
+
+#: inc/admin.php:60 inc/admin.php:128 inc/admin.php:197
+msgid "Radio Button"
+msgstr ""
+
+#: inc/admin.php:61 inc/admin.php:129 inc/admin.php:198
+msgid "A radio button"
+msgstr ""
+
+#: inc/admin.php:70 inc/admin.php:139 inc/admin.php:207
+msgid "Multile checkbox"
+msgstr ""
+
+#: inc/admin.php:71 inc/admin.php:140 inc/admin.php:208
+msgid "Multi checkbox description"
+msgstr ""
+
+#: inc/admin.php:82 inc/admin.php:152 inc/admin.php:219
+msgid "A Dropdown"
+msgstr ""
+
+#: inc/admin.php:83 inc/admin.php:153 inc/admin.php:220
+msgid "Dropdown description"
+msgstr ""
+
+#: inc/admin.php:93 inc/admin.php:162 inc/admin.php:229
+msgid "Password"
+msgstr ""
+
+#: inc/admin.php:94 inc/admin.php:163 inc/admin.php:230
+msgid "Password description"
+msgstr ""
+
+#: inc/admin.php:100 inc/admin.php:169 inc/admin.php:236
+msgid "File"
+msgstr ""
+
+#: inc/admin.php:101 inc/admin.php:170 inc/admin.php:237
+msgid "File description"
+msgstr ""
+
+#. Name of the plugin
+msgid "EEMI Option page"
+msgstr ""
+
+#. Description of the plugin
+msgid "TD - Option page"
+msgstr ""
+
+#. Author of the plugin
+msgid "Julien Maury"
+msgstr ""
