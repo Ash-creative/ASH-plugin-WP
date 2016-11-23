@@ -14,7 +14,6 @@ Text Domain: size
 */
 
 
-
 defined( 'ABSPATH' )
 or die ( 'No direct load !' );
 
@@ -33,54 +32,15 @@ if ( is_admin() ) {
 
 add_action( 'plugins_loaded', 'eemi_oop_init' );
 
+// New media button: Kaomoji
+add_action('media_buttons', 'kaomojibutton');
+function kaomojibutton() {
+    echo "<a href='#' id='kaomojibutton' class='button kaomojibutton' name='kaomojibutton' onclick='kao12345()'>Kaomoji</a>";
+}
 
-// Plugin
+// Main array
 function box () {
-    echo "<span>Kaomoji</span>
-    <table id='kaomoji'>
-        <tr>
-            <th>Happy</th>
-            <th>Excited</th>
-            <th>Surprised</th>
-            <th>Sad</th>
-            <th>Cat</th>
-        </tr>
-        <tr>
-            <td>( ´ ▽ ` )ﾉ</td>
-            <td>Ｏ(≧∇≦)Ｏ</td>
-            <td>(*ﾟﾛﾟ)</td>
-            <td>( ≧Д≦)</td>
-            <td>（ΦωΦ）</td>
-        </tr>
-        <tr>
-            <td>(“⌒∇⌒”)</td>
-            <td>⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽</td>
-            <td>( ꒪Д꒪)ノ</td>
-            <td>(｡•́︿•̀｡)</td>
-            <td>(ↀДↀ)✧</td>
-        </tr>
-        <tr>
-            <td>(≧∇≦)/</td>
-            <td>(ﾉ^∇^)ﾉﾟ</td>
-            <td>(・о・)</td>
-            <td>(个_个)</td>
-            <td>( ⓛ ω ⓛ *)</td>
-        </tr>
-        <tr>
-            <td>ﾍ(=￣∇￣)ﾉ</td>
-            <td>ヽ( ★ω★)ノ</td>
-            <td>(ﾟ艸ﾟ;)</td>
-            <td>(︶︹︺)</td>
-            <td>(^・ω・^ )</td>
-        </tr>
-        <tr>
-            <td>೭੧(❛▿❛✿)੭೨</td>
-            <td>(≧∀≦)</td>
-            <td>Σ(･口･)</td>
-            <td>(˵¯͒⌢͗¯͒˵)</td>
-            <td>(^._.^)ﾉ</td>
-        </tr>
-    </table>";
+    include('view/kao-array.php');
 }
 
 add_filter('edit_form_after_title', 'box', 10, 1);
@@ -98,7 +58,6 @@ add_filter('edit_form_after_title', 'box', 10, 1);
 add_action('admin_print_styles', 'admincss', 11);
 
 
-
 // Back office JS loading
 function wpdocs_selectively_enqueue_admin_script( $hook ) {
     if ( 'edit.php' == $hook ) {
@@ -107,6 +66,19 @@ function wpdocs_selectively_enqueue_admin_script( $hook ) {
     wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . 'js/admin-script.js', array(), '1.0' );
 }
 add_action( 'admin_enqueue_scripts', 'wpdocs_selectively_enqueue_admin_script' );
+
+
+// Clipboard loading
+function clipboard( $hook ) {
+    if ( 'edit.php' == $hook ) {
+        return;
+    }
+    wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . 'js/clipboard/dist/clipboard.min.js', array(), '1.0' );
+}
+add_action( 'admin_enqueue_scripts', 'clipboard' );
+
+
+
 
 
 //load_plugin_textdomain( string $traduction, string $deprecated = false, string $plugin_rel_path = false );
