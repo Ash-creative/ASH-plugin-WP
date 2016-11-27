@@ -2,7 +2,7 @@
 /*
 Plugin Name: Japanese Kaomoji
 Plugin URI:  https://developer.wordpress.org/plugins/ash-creative/
-Description: Plugin
+Description: Use Kaomoji as you want
 Version:     1.00
 Author:      Antoine Saint-Hilaire
 Author URI:  https://github.com/Ash-creative
@@ -26,57 +26,44 @@ if ( is_admin() ) {
 }
 
 // Translate file loading
-    function eemi_oop_init() {
+    function kaomoji_oop_init() {
         load_plugin_textdomain( 'size-op', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
     }
 
-add_action( 'plugins_loaded', 'eemi_oop_init' );
+add_action( 'plugins_loaded', 'kaomoji_oop_init' );
 
 // New media button: Kaomoji
-add_action('media_buttons', 'kaomojibutton');
-function kaomojibutton() {
-    echo "<a href='#' id='kaomojibutton' class='button kaomojibutton' name='kaomojibutton' onclick='kao12345()'>Kaomoji</a>";
-}
+    add_action('media_buttons', 'kaomojibutton');
+    function kaomojibutton() {
+        echo "<a href='#' id='kaomojibutton' class='button kaomojibutton' name='kaomojibutton' onclick='openkaomoji()'>Kaomoji</a>";
+    }
 
 // Main array
-function box () {
-    include('view/kao-array.php');
-}
+    function box () {
+        include('view/kao-array.php');
+    }
 
-add_filter('edit_form_after_title', 'box', 10, 1);
+    add_filter('edit_form_after_title', 'box', 10, 1);
 
 
 
 // Back office custom CSS
     function admincss() {
-
     $admin_handle = 'admin_css';
     $admin_stylesheet = '/wp-content/plugins/kaomoji/css/admin-plugin.css';
-
-    wp_enqueue_style( $admin_handle, $admin_stylesheet );
+        wp_enqueue_style( $admin_handle, $admin_stylesheet );
     }
-add_action('admin_print_styles', 'admincss', 11);
+    add_action('admin_print_styles', 'admincss', 11);
 
 
 // Back office JS loading
-function wpdocs_selectively_enqueue_admin_script( $hook ) {
-    if ( 'edit.php' == $hook ) {
-        return;
+    function wpdocs_selectively_enqueue_admin_script( $hook ) {
+        if ( 'edit.php' == $hook ) {
+            return;
+        }
+        wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . 'js/admin-script.js', array(), '1.0' );
     }
-    wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . 'js/admin-script.js', array(), '1.0' );
-}
-add_action( 'admin_enqueue_scripts', 'wpdocs_selectively_enqueue_admin_script' );
-
-
-// Clipboard loading
-function clipboard( $hook ) {
-    if ( 'edit.php' == $hook ) {
-        return;
-    }
-    wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . 'js/clipboard/dist/clipboard.min.js', array(), '1.0' );
-}
-add_action( 'admin_enqueue_scripts', 'clipboard' );
-
+    add_action( 'admin_enqueue_scripts', 'wpdocs_selectively_enqueue_admin_script' );
 
 
 

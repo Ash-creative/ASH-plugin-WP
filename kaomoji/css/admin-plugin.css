@@ -5,12 +5,7 @@
 table#kaomojitab {
     color: black;
     border: 1px solid;
-    background-color: ;
-    border-spacing: 20px;
+    border-spacing: 10px;
     border-collapse: separate;
     display: none;
-}
-
-a#kaomojibutton.button:hover {
-
 }
